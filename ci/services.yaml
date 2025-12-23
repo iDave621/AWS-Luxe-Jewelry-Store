@@ -1,0 +1,12 @@
+services:
+  - name: backend
+    path: backend
+    dockerfile: Dockerfile
+
+  - name: auth-service
+    path: auth-service
+    dockerfile: Dockerfile
+
+  - name: jewelry-store
+    path: jewelry-store
+    dockerfile: Dockerfile
