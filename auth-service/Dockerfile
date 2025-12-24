@@ -8,16 +8,20 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
 # Install Python dependencies
-COPY auth-service/requirements.txt .
+COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy shared module first
+# Copy shared module
 COPY shared ./shared
-# Copy the application code
-COPY auth-service/* ./
+
+# Copy application source files explicitly
+COPY main.py .
+# add more files here if needed, for example:
+# COPY app ./app
+# COPY routers ./routers
 
 # Expose the port the app runs on
 EXPOSE 8001
 
-# Command to run the application
+# Start the app
 CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8001"]
