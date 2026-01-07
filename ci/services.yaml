@@ -7,6 +7,6 @@ services:
     path: auth-service
     dockerfile: Dockerfile
 
-  - name: jewelry-store
-    path: jewelry-store
+  - name: frontend
+    path: frontend
     dockerfile: Dockerfile
